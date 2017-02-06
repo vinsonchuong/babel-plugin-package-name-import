@@ -1,4 +1,6 @@
 # babel-plugin-package-name-import
+[![Build Status](https://travis-ci.org/vinsonchuong/babel-plugin-package-name-import.svg?branch=master)](https://travis-ci.org/vinsonchuong/babel-plugin-package-name-import)
+
 Import files from the current package by name
 
 ## Installing
