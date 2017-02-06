@@ -1,0 +1,65 @@
+{
+  "name": "babel-plugin-package-name-import",
+  "version": "1.0.0",
+  "description": "Import files from the current package by name",
+  "keywords": [
+    "babel",
+    "import",
+    "root"
+  ],
+  "homepage": "https://github.com/vinsonchuong/babel-plugin-package-name-import",
+  "bugs": "https://github.com/vinsonchuong/babel-plugin-package-name-import/issues",
+  "license": "MIT",
+  "author": "Vinson Chuong <vinsonchuong@gmail.com>",
+  "files": [
+    "LICENSE",
+    "README.md",
+    "src"
+  ],
+  "main": "src/index.js",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/vinsonchuong/babel-plugin-package-name-import"
+  },
+  "scripts": {
+    "test": "standard --fix && ava"
+  },
+  "dependencies": {
+    "babel-runtime": "^6.22.0"
+  },
+  "devDependencies": {
+    "ava": "^0.18.1",
+    "babel-core": "^6.22.1",
+    "babel-plugin-module-resolver": "^2.5.0",
+    "babel-plugin-transform-runtime": "^6.22.0",
+    "babel-preset-latest": "^6.22.0",
+    "babel-register": "^6.22.0",
+    "dedent": "^0.7.0",
+    "standard-esnext": "^1.0.5"
+  },
+  "babel": {
+    "presets": [
+      "latest"
+    ],
+    "plugins": [
+      "transform-runtime",
+      [
+        "module-resolver",
+        {
+          "alias": {
+            "babel-plugin-package-name-import": "./"
+          }
+        }
+      ]
+    ]
+  },
+  "ava": {
+    "babel": "inherit",
+    "require": "babel-register"
+  },
+  "standard": {
+    "ignore": [
+      "test/fixtures/"
+    ]
+  }
+}
