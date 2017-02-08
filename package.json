@@ -23,7 +23,7 @@
   },
   "scripts": {
     "test": "standard --fix && ava",
-    "build": "babel-node lib/deploy.js"
+    "build": "build-esm"
   },
   "dependencies": {
     "babel-runtime": "^6.22.0"
@@ -36,13 +36,9 @@
     "babel-plugin-transform-runtime": "^6.22.0",
     "babel-preset-latest": "^6.22.0",
     "babel-register": "^6.22.0",
+    "build-esm": "^1.0.0",
     "dedent": "^0.7.0",
-    "mkdirp": "^0.5.1",
-    "mz": "^2.6.0",
-    "pkgfiles": "^2.3.2",
-    "rimraf": "^2.5.4",
-    "standard-esnext": "^1.0.5",
-    "thenify": "^3.2.1"
+    "standard-esnext": "^1.0.5"
   },
   "babel": {
     "presets": [
