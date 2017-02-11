@@ -50,6 +50,7 @@ current project imports by adding to `.flowconfig`:
 
 ```
 [options]
+module.name_mapper='^project$' -> '<PROJECT_ROOT>'
 module.name_mapper='^project\/\(.*\)$' -> '<PROJECT_ROOT>/\1'
 ```
 
