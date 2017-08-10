@@ -1,7 +1,7 @@
 import * as babel from 'babel-core'
 
-export default async function (filePath, {plugins}) {
-  const {code} = await new Promise((resolve, reject) => {
+export default async function(filePath, { plugins }) {
+  const { code } = await new Promise((resolve, reject) => {
     babel.transformFile(
       filePath,
       {
@@ -19,4 +19,3 @@ export default async function (filePath, {plugins}) {
   })
   return code
 }
-

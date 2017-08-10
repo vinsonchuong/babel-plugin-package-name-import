@@ -1,23 +1,30 @@
-import findPackageJson from './findPackageJson'
+import * as path from 'path'
+import { findNearestPackageJsonSync } from 'find-nearest-package-json'
 import resolvePathAlias from './resolvePathAlias'
 
-export default function () {
+export default function() {
   return {
     visitor: {
-      'ImportDeclaration|ExportAllDeclaration|ExportNamedDeclaration' (path, state) {
-        if (!path.node.source) {
+      'ImportDeclaration|ExportAllDeclaration|ExportNamedDeclaration'(
+        astPath,
+        astState
+      ) {
+        if (!astPath.node.source) {
           return
         }
 
-        const sourceFilePath = state.file.opts.filename
-        const packageJson = findPackageJson(sourceFilePath)
+        const sourceFilePath = astState.file.opts.filename
 
-        path.node.source.value = resolvePathAlias(
-          packageJson.path,
-          packageJson.data.name,
-          sourceFilePath,
-          path.node.source.value
-        )
+        try {
+          const packageJson = findNearestPackageJsonSync(sourceFilePath)
+
+          astPath.node.source.value = resolvePathAlias(
+            path.dirname(packageJson.path),
+            packageJson.data.name,
+            sourceFilePath,
+            astPath.node.source.value
+          )
+        } catch (error) {}
       }
     }
   }

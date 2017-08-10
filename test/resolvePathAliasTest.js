@@ -2,7 +2,7 @@ import test from 'ava'
 import * as path from 'path'
 import resolvePathAlias from 'babel-plugin-package-name-import/src/resolvePathAlias'
 
-test('replaces an aliased path with a relative path', (t) => {
+test('replaces an aliased path with a relative path', t => {
   const fixturePath = path.resolve('test/fixtures/project')
 
   t.is(
