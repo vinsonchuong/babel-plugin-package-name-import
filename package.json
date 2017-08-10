@@ -1,6 +1,6 @@
 {
   "name": "babel-plugin-package-name-import",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "Import files from the current package by name",
   "keywords": [
     "babel",
